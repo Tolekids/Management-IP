@@ -1,4 +1,4 @@
-# Copyright (c) 2021 - Indra Styawantoro. All rights reserved.
+# Copyright (c) 2024 - Quincy All rights reserved.
 
 
 # Permissions

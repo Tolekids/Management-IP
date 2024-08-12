@@ -76,9 +76,9 @@ if (isset($_GET['id'])) {
             <td><?= $data['domain']; ?></td>
           </tr>
           <tr>
-            <td>WhatsApp</td>
+            <td>Nama Perangkat</td>
             <td>:</td>
-            <td><?= $data['whatsapp']; ?></td>
+            <td><?= $data['nama_perangkat']; ?></td>
           </tr>
         </table>
       </div>

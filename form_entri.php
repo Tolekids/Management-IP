@@ -1,3 +1,4 @@
+
 <div class="d-flex flex-column flex-md-row px-4 py-2 mt-4 text-white bg-indigo rounded shadow">
   <!-- judul halaman -->
   <div class="d-flex align-items-center me-md-auto">
@@ -64,10 +65,10 @@
 
         <div class="mb-3 pt-2">
           <label class="form-label">Jenis Pilot <span class="text-danger">*</span></label>
-          <select name="jenis_pilot" class="form-select" autocomplete="off" required>
+          <select name="jenis_pilot" class="form-select" autocomplete="off" required disabled>
             <option selected disabled value="">-- Pilih --</option>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
+            <option value="user" <?php echo $_SESSION['username'] == 'user' ? 'selected':'' ?>>User</option>
+            <option value="admin" <?php echo $_SESSION['username'] == 'admin' ? 'selected':'' ?>>Admin</option>
             <option value="alex">Super Alex</option>
           </select>
           <div class="invalid-feedback">Jenis User tidak boleh kosong.</div>
@@ -75,7 +76,7 @@
 
         <div class="mb-3">
           <label class="form-label">IP <span class="text-danger">*</span></label>
-          <input type="text" name="ip" class="form-control" autocomplete="off" required>
+          <input type="text" name="ip" class="form-control" autocomplete="off" maxlength="16" required>
           <div class="invalid-feedback">IP tidak boleh kosong.</div>
         </div>
 
@@ -108,8 +109,8 @@
 
           <div class="mb-3 col-md-6">
             <label class="form-label">Nama Perangkat <span class="text-danger">*</span></label>
-            <input type="text" name="whatsapp" class="form-control" maxlength="13" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" required>
-            <div class="invalid-feedback">Perangkat tidak boleh kosong.</div>
+            <input type="nama_perangkat" name="nama_perangkat" class="form-control" autocomplete="off" required>
+            <div class="invalid-feedback">Nama Perangkat tidak boleh kosong.</div>
           </div>
         </div>
       </div>

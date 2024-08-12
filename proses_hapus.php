@@ -29,6 +29,6 @@ if (isset($_GET['id'])) {
   // jika proses delete berhasil
   if ($delete) {
     // alihkan ke halaman data member dan tampilkan pesan berhasil hapus data
-    header('location: index.php?halaman=data&pesan=3');
+    header('location: dashboard.php?halaman=data&pesan=3');
   }
 }

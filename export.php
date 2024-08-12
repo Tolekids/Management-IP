@@ -26,7 +26,7 @@ header("Content-Disposition: attachment; filename=Data-Member.xls");
       <th height="30" align="center" vertical="center">Perangkat</th>
       <th height="30" align="center" vertical="center">Keterangan</th>
       <th height="30" align="center" vertical="center">Domain</th>
-      <th height="30" align="center" vertical="center">WhatsApp</th>
+      <th height="30" align="center" vertical="center">Nama Perangkat</th>
     </tr>
   </thead>
   <tbody>
@@ -48,7 +48,7 @@ header("Content-Disposition: attachment; filename=Data-Member.xls");
         <td width="120" align="center"><?= $data['perangkat']; ?></td>
         <td width="250"><?= $data['keterangan']; ?></td>
         <td width="240"><?= $data['domain']; ?></td>
-        <td width="120" align="center">'<?= $data['whatsapp']; ?></td>
+        <td width="120" align="center">'<?= $data['nama_perangkat']; ?></td>
       </tr>
     <?php } ?>
   </tbody>

@@ -6,9 +6,9 @@ require_once "config/database.php";
 // panggil file "fungsi_tanggal_indo.php" untuk membuat format tanggal indonesia
 require_once "helper/fungsi_tanggal_indo.php";
 include 'helper.php';
-if(session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+
+// Call the checkSessionLogin function
+checkSessionLogin();
 ?>
 
 <!doctype html>
@@ -36,7 +36,7 @@ if(session_status() == PHP_SESSION_NONE) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css">
 
   <!-- Custom Style -->
-  <link rel="stylesheet" href="css/log.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -58,23 +58,44 @@ if(session_status() == PHP_SESSION_NONE) {
           <a href="https://www.youtube.com/@KominfoBondowoso" target="_blank" class="btn btn-danger rounded-pill">
             <i class="fab fa-youtube py-1"></i>
           </a>
+
         </div>
       </div>
     </div>
   </header>
 
-  <form action="<?php login()?>" id="main" method="POST">
-  <h2>Login to your account <span class="text-danger"><?php echo isset($_SESSION['errorLogin']) ? $_SESSION['errorLogin'] : ''; ?></span></h2>
-  <div class="input-parent">
-    <label for="username">Username or Email</label>
-    <input type="text" id="username" name="username"/>
-  </div>
-  <div class="input-parent">
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" />
-  </div>
-  <button type="submit">Login</button>
-</form>
+  <main class="flex-shrink-0 mb-4">
+    <div class="container">
+      <?php
+      // pemanggilan file konten sesuai "halaman" yang dipilih
+      // jika tidak ada halaman yang dipilih atau halaman yang dipilih "data"
+      if (empty($_GET["halaman"]) || $_GET['halaman'] == 'data') {
+        // panggil file tampil data
+        include "tampil_data.php";
+      }
+      // jika halaman yang dipilih "entri"
+      elseif ($_GET['halaman'] == 'entri') {
+        // panggil file form entri
+        include "form_entri.php";
+      }
+      // jika halaman yang dipilih "ubah"
+      elseif ($_GET['halaman'] == 'ubah') {
+        // panggil file form ubah
+        include "form_ubah.php";
+      }
+      // jika halaman yang dipilih "detail"
+      elseif ($_GET['halaman'] == 'detail') {
+        // panggil file tampil detail
+        include "tampil_detail.php";
+      }
+      // jika halaman yang dipilih "pencarian"
+      elseif ($_GET['halaman'] == 'pencarian') {
+        // panggil file tampil pencarian
+        include "tampil_pencarian.php";
+      }
+      ?>
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer class="footer mt-auto py-3 bg-indigo">

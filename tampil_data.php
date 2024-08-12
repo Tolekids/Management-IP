@@ -2,7 +2,9 @@
   <!-- judul halaman -->
   <div class="d-flex align-items-center me-md-auto">
     <i class="fas fa-user-circle fa-2x me-3"></i>
-    <h1 class="h5 pt-2">INK</h1>
+    <form action="proses_logout.php" method="post">
+                <button type="submit" name="logout" class="btn btn-danger">Logout</button>
+            </form>
   </div>
   <!-- breadcrumbs -->
   <div class="ms-5 ms-md-0 pt-md-3 pb-md-0">

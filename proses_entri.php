@@ -16,7 +16,7 @@ if (isset($_POST['simpan'])) {
   $perangkat      = mysqli_real_escape_string($mysqli, $_POST['perangkat']);
   $keterangan             = mysqli_real_escape_string($mysqli, trim($_POST['keterangan']));
   $domain              = mysqli_real_escape_string($mysqli, trim($_POST['domain']));
-  $whatsapp           = mysqli_real_escape_string($mysqli, trim($_POST['nama_perangkat']));
+  $nama_perangkat           = mysqli_real_escape_string($mysqli, trim($_POST['nama_perangkat']));
 
   // ubah format tanggal menjadi Tahun-Bulan-Hari (Y-m-d) sebelum disimpan ke database
   $tanggal_upload     = date('Y-m-d', strtotime($tanggal));
@@ -35,7 +35,7 @@ if (isset($_POST['simpan'])) {
   if (move_uploaded_file($tmp_file, $path)) {
     // sql statement untuk insert data ke tabel "tbl_member"
     $insert = mysqli_query($mysqli, "INSERT INTO tbl_member(id_member, tanggal_upload, jenis_pilot, ip, perangkat, keterangan, domain, nama_perangkat, foto_profil)
-                                    VALUES('$id_member', '$tanggal_upload', '$jenis_pilot', '$ip', '$perangkat', '$keterangan', '$domain', '$nama_perangka', '$nama_file_enkripsi')")
+                                    VALUES('$id_member', '$tanggal_upload', '$jenis_pilot', '$ip', '$perangkat', '$keterangan', '$domain', '$nama_perangkat', '$nama_file_enkripsi')")
                                     or die('Ada kesalahan pada query insert : ' . mysqli_error($mysqli));
     // cek query
     // jika proses insert berhasil
